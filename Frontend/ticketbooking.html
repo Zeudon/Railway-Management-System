@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="fa/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style>
+        .form-group{
+            width: 70%;
+            padding-left: 35%;
+        }
+        .form-group-btn{
+            padding-left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="display-4" style="text-align: center;">Train Booking</h1><hr><br>
+    <form method="post" action="#">
+        <p th:text=" 'Train for '+ ${userid}"></p>
+        <div class="form-group">
+            <label for="date">Date of the Journey</label>
+            <input type="date" id="journey_date" class="form-control" placeholder="DD/MM/YYYY"name="date">
+        </div>
+        <div class='form-group'>
+            <label for="source">Enter Boarding Location</label>
+            <input type="text" id="source" class="form-control" placeholder="Boarding Location" name="source">
+        </div>
+        <div class='form-group'>
+            <label for="dest">Enter Destination</label>
+            <input type="text" id="dest" class="form-control" placeholder="Destination" name="dest">
+        </div>
+        <div class='form-group'>
+            <label for="passngerno">Enter Number of Passengers</label>
+            <input type="text" id="passengerno" class="form-control" placeholder="Passenger Count" name="passengerno">
+        </div>
+        <br>
+        <div class="form-group-btn">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+    </form>
+    
+</body>
