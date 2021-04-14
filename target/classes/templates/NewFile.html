@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Update profile</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>User  ID</th>
+           <!---      <th>Password</th>   --->
+                <th>firstname</th>
+                <th>Email</th>
+                <th>LastName</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${listUsers}">
+            	<td th:text="${user.userId}">Product ID</td>
+             <!--     <td th:text="${user.password}">Name</td>   --> 
+                <td th:text="${user.name}">FirstName:</td>
+                <td th:text="${user.email}">Email:</td>
+                <td th:text="${user.phone}">LastName</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${user.userId}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${user.UserId}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <title>Railway_Management_System</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <link rel="stylesheet" type="text/css"
 	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="/css/main.css" />
+
+</head>
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -35,48 +35,44 @@
     </div>
   </div>
 </nav>
-
-
-	<div class="container">
-		<h2>Your input are: </h2>
-		<table class="table table-striped" th:object="${searchContent}">
-			<thead>
-				<tr>
-					<th>Departure Date</th>
-					<th>Departure Time</th>
-					<th>Departure Station</th>
-					<th>Destination Station</th>
-					<th>Train Type</th>
-					<th>Number of Connections</th>
-					<th>Round or One Way Trip</th>
-					<th>Number of Passenger</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td th:text="*{departureDate}"/>
-					<td th:text="*{departureTime}"/>
-					<td th:text="*{departureStation}"/>
-					<td th:text="*{destinationStation}"/>
-					<td th:text="*{trainType}" />
-					<td th:text="*{numberOfConnections}"/>
-					<td>
-						<span th:if="*{roundTrip}" th:text="Round"></span>
-						<span th:unless="*{roundTrip}" th:text="OneWay"></span>
-					</td>
-					<td th:text="*{numberOfSeats}" />
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="container" th:object="${oneWayList}" >
+  
+<div class="container" th:object="${oneWayTrip}">
+		
+		<div class = "row">
+			<h2>Your first trip is:</h2>
+		</div>
+		<div class = "row">
+			<div class="col-md-6 col-sm-12">
+	 			<table class="table table-striped" >
+					<thead>
+						<tr>
+						<th>Departure Date</th>
+						<th>Arrival Time</th>
+						<th>Number of Passenger</th>
+						<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						
+						<td th:text="*{departureDate}"/>
+						<th th:text="*{arrivalTime}"/>
+						<td th:text="*{numberOfSeats}"/>
+						<td th:text="*{ticketPrice}"/>
+						
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+</div>
+<div class="container" th:object="${returnWayList}" >
 		<div class = "row">
 			<h2 th:text="*{message}"></h2>
 		</div>
-		
 		<div class = "row">
-			<h2>Your searching results are:</h2>
+			<h2>Your return trip searching results are:</h2>
 		</div>
 		
 		<div class = "row">
@@ -97,7 +93,7 @@
 						<th th:text="${oneWayTrip.arrivalTime}"/>
 						<td th:text="${oneWayTrip.numberOfSeats}"/>
 						<td th:text="${oneWayTrip.ticketPrice}"/>
-						<td><form th:action="@{/selectReturn}" method ="post">
+						<td><form th:action="@{/purchase}" method ="post">
 							<input type="submit" th:value="Trip + ${iterStat.count}" th:name="Select" />
 						</form></td>
 						</tr>
@@ -135,7 +131,6 @@
 				</tbody>
 			</table>
 		</div>
-	
-	</div>
+</div>
 </body>
 </html>
