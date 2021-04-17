@@ -36,11 +36,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 		userRepo.save(user);
 	}
 	
-	public User get(long id) {
-		User auth = (User) SecurityContextHolder.getContext().getAuthentication();
-		Long id1 = auth.getUserId();
-
-		return userRepo.findOne(id);
+	public User get() {
+		User auth = (User) SecurityContextHolder.getContext().getAuthentication().getCredentials();
+	
+		return auth;
 	}
 	
 	public User findbyId(long id)
@@ -52,6 +51,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		
 		
 	}
+
+	
 	
 	
 

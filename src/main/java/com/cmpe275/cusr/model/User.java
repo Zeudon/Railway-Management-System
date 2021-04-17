@@ -124,5 +124,10 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public Object isActive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

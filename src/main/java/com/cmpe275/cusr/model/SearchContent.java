@@ -13,7 +13,7 @@ public class SearchContent {
 	private String returnDate;
 	private String returnTime;
 	private int numberOfSeats;
-	private String numberOfConnections;
+	private String numberOfConnections="None";
 	
 	private Station[] allStations = Station.values();
 	private static final int[] seats = {1,2,3,4,5}; 
@@ -40,7 +40,7 @@ public class SearchContent {
 	
 
 	public String getNumberOfConnections() {
-		return "Any";
+		return "None";
 	}
 
 	public void setNumberOfConnections(String numberOfConnections) {
@@ -78,7 +78,7 @@ public class SearchContent {
 		this.departureDate = departureDate;
 	}
 	public String getDepartureTime() {
-		return departureTime;
+		return "00:01";
 	}
 	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
@@ -99,7 +99,7 @@ public class SearchContent {
 	}
 	
 	public String getTrainType() {
-		return trainType;
+		return "None";
 	}
 
 	public void setTrainType(String trainType) {

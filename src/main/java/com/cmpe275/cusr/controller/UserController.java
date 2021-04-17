@@ -67,8 +67,11 @@ public class UserController {
 			Model model) {
 				
 				//add search inquiry in the view
+		        search.setNumberOfConnections("One");
+		        search.setDepartureTime("00:01");
+		        
 				model.addAttribute("searchContent", search);
-				
+				 
 				model.addAttribute("numberOfConnections", "Any");
 		
 				//create search result container

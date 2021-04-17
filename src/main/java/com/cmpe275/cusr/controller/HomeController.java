@@ -3,6 +3,7 @@ package com.cmpe275.cusr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cmpe275.cusr.model.SearchContent;
+import com.cmpe275.cusr.model.CustomUserDetails;
 import com.cmpe275.cusr.model.User;
 import com.cmpe275.cusr.repository.UserRepository;
+import com.cmpe275.cusr.service.UserService;
 
 
 
@@ -27,6 +29,9 @@ public class HomeController {
 	
 	@Autowired
 	CustomUserDetailsService userService;
+	
+	@Autowired
+	UserService userSer;
 	
 	@GetMapping("")
 	public String viewHomePage() {
@@ -55,9 +60,14 @@ public class HomeController {
 		return "register_success";
 	}
 	@GetMapping("/users")
-	public String index(Model model) {
-		SearchContent users = new SearchContent();
-		model.addAttribute("searchContent", users);
+	public String index(Model model,@AuthenticationPrincipal CustomUserDetails userdetails) {
+		User users = new User();
+		String user1=userdetails.getUsername();
+		User user=userSer.getUserFromDB(user1);
+		long id=user.getUserId();
+		
+		model.addAttribute("user", id);
+		
 		return "users";
 	}
 	

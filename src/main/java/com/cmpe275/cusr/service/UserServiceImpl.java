@@ -10,11 +10,13 @@ import com.cmpe275.cusr.repository.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 	
+	
 	@Autowired
 	private UserRepository userRepository;
 	
 //	@Autowired(required = false)
 //	private FirebaseService firebaseService;
+	
 	
 	public User findUser() {
 		User u = (User) SecurityContextHolder.getContext().getAuthentication().getCredentials();
