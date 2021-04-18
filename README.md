@@ -1,10 +1,9 @@
+# CMPE275CUSR
+CMPE 275 Team Project - Train Ticket Reservation System
 
-Railway Management System - Train Ticket Reservation System with Report Creation.
 
-
+# TOOLS
 Spring Boot
-
-JsPDF
 
 Spring Security
 
@@ -14,8 +13,16 @@ Spring DATA
 
 JPA
 
-Postgres
+Firebase
+
+MySQL
 
 Thymeleaf
 
+Bootstrap
 
+Eclipse/STS
+
+Maven
+
+Java 8

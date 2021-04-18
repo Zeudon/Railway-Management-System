@@ -81,7 +81,7 @@ public class TicketController {
 			String msg = "Thanks for your booking! Here is the ticket details:";
 	//		String content1 = emailService.bookingMailBuilder(booking, "emailTemplateBook", msg);
 	//	emailService.sendMail(user.getEmail(),"CUSR Ticket Booking Confirmation", content1);
-			return "purchaseConfirm";
+			return "ticketbooking";
 		} else {
 			String msg = "Sorry, we could not proceed with the following booking. Please try your search again!";
 	//	String content1 = emailService.bookingMailBuilder(booking, "emailTemplateBook", msg);
@@ -119,7 +119,7 @@ public class TicketController {
 	//		String content = emailService.ticketMailBuilder(ticketId, "emailTemplateCancel", msg);
 	//		emailService.sendMail(user.getEmail(),"CUSR Ticket Cancellation Fail", content);			
 		}
-		return "ticketCancel";
+		return "cancelticket";
 	}
 	@GetMapping("/print")
 	public String print(@RequestParam("id") long ticketId,Model model)
@@ -143,7 +143,7 @@ public class TicketController {
 		
 		
 		
-		return "NewFile2";
+		return "ticketprint";
 	}
 	
 	@GetMapping("/tickets")
@@ -162,6 +162,6 @@ public class TicketController {
 		}
 		
 		model.addAttribute("ticketList", ticketList);
-		return "usertickets";
+		return "viewticket";
 	}
 }

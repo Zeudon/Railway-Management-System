@@ -68,7 +68,7 @@ public class HomeController {
 		
 		model.addAttribute("user", id);
 		
-		return "users";
+		return "Maindashboard";
 	}
 	
 	@RequestMapping("/update")
@@ -76,7 +76,7 @@ public class HomeController {
 		List<User> listUsers = userService.listAll();
 		model.addAttribute("listUsers", listUsers);
 		
-		return "NewFile";
+		return "Updateallusers";
 	}
 	
 	
@@ -89,7 +89,7 @@ public class HomeController {
 	
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditProductPage(@PathVariable(name = "id") long id) {
-		ModelAndView mav = new ModelAndView("NewFile1");
+		ModelAndView mav = new ModelAndView("Updateuser");
 		User user = userService.findbyId(id);
 		mav.addObject("user", user);
 		

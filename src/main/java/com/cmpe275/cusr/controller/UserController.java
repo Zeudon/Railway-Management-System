@@ -57,7 +57,7 @@ public class UserController {
 	public String index(Model model) {
 		SearchContent search = new SearchContent();
 		model.addAttribute("searchContent", search);
-		return "search";
+		return "ticketbookingsearch";
 	}
 
 
@@ -84,7 +84,7 @@ public class UserController {
 				}
 				model.addAttribute("oneWayList", result);
 				
-				return "searchResult";
+				return "ticketbookingsearchresult";
 	}
 	
 	@PostMapping("/selectReturn")
@@ -154,7 +154,7 @@ public class UserController {
 			model.addAttribute("returnTrip", returnTrip.getConnections());
 		}
 		status.setComplete();
-		return "purchase";
+		return "ticketbooking";
 	}
 	
 	

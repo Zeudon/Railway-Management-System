@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <meta name="description" content="Login - Register Template"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="main.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-login">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Login
+        </div>
+
+        <div class="col-md-5">
+			<h3>Login with email</h3>
+			<form class="form">
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" id="login-email" class="form-control" placeholder="Enter Email" name="email" />
+				</div>
+				
+				<div class="form-group">
+					<label for="pwd">Password</label>
+					<input type="password" id="login-pwd" class="form-control" placeholder="Enter Password" name="pwd" />
+				</div>
+				
+				<div id="login" class="btn btn-default">Login</div>
+			</form>
+		</div>
+
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+        </div>
+
+
+        <div class="register">
+            Don't have an account yet?
+            <a href="#"><button id="register-link">Register here</button></a>
+        </div>
+    </div>
+</body>
+</html>
